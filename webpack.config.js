@@ -24,13 +24,13 @@ module.exports = {
    module: {
       rules: [
          {
-            test: /\.jpg$/i, //* process any image file with file extension .jpg ( can be extended to other ext. )
+            test: /\.jpg|png|gif|svg$/i, //* process any image file with file extension .jpg ( can be extended to other ext. )
             use: [
                {
                   loader: 'file-loader',
                   options: {
                      esModule: false,
-                     // get the actual file name and path instead of a hashed name
+                     //* get the actual file name and path instead of a hashed name
                      name(file) {
                         return '[path][name].[ext]';
                      },
@@ -52,8 +52,8 @@ module.exports = {
          jQuery: 'jquery',
       }),
       new BundleAnalyzerPlugin({
-         // analyzerMode: 'disable', // opens the report in the browser
-         analyzerMode: 'static', // the report outputs to an html file in the dist folder
+         // analyzerMode: 'disable', //* opens the report in the browser
+         analyzerMode: 'static', //* the report outputs to an html file in the dist folder
       }),
    ],
    mode: 'development',
